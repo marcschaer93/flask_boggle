@@ -1,5 +1,45 @@
 {%extends 'base.html'%} {%block title%}Board{%endblock%} {%block content%}
 
-<h1>BOOGLE</h1>
+<section id="boggle_1">
+  <form id="inputForm" autocomplete="off">
+    <label for="word"></label>
+    <input type="text" name="word" id="input" placeholder="WORD" />
+    <button type="submit">Submit</button>
+  </form>
+
+  <p>
+    HIGHSCORE:
+    <div id="highscore"></div>
+  </p>
+  
+  <div id="score">
+    <p>
+      SCORE:
+      <div id="counterValue"></div>
+    </p>
+  </div>
+
+  <div id="">
+    <h1>
+      TIME:
+      <div id="timer"></div>
+    </h1>
+  </div>
+
+  <div>
+    <h1>WORDS</h1>
+    <ul id="wordList"></ul>
+  </div>
+
+  <div id="message"></div>
+
+  <div><button id="resetBtn" type="reset">NEW GAME</button></div>
+
+  <div class="boggle-board">
+    {% for list_row in boggle_board %} {% for char in list_row %}
+    <div class="char">{{ char }}</div>
+    {% endfor %} {% endfor %}
+  </div>
+</section>
 
 {%endblock%}

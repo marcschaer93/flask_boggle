@@ -36,11 +36,11 @@ class Boggle():
         valid_word = self.find(board, word.upper())
 
         if word_exists and valid_word:
-            result = "ok"
+            result = "WELL-DONE"
         elif word_exists and not valid_word:
-            result = "not-on-board"
+            result = "NOT-ON-BOARD"
         else:
-            result = "not-word"
+            result = "NOT-A-WORD"
 
         return result
 

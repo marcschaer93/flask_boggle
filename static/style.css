@@ -1,0 +1,57 @@
+* {
+  box-sizing: border-box;
+  margin: 0px;
+  padding: 0px;
+  font-family: "Courier New", Courier, monospace;
+}
+
+body {
+  background-color: darkgray;
+}
+
+.boggle-board {
+  display: grid;
+  grid-template-columns: repeat(5, 1fr);
+  grid-template-rows: repeat(5, 1fr);
+  gap: 10px;
+  width: 50vw;
+  height: 50vw;
+  /* width: 80vh; */
+  /* height: 80vh; */
+  max-width: 500px;
+  max-height: 500px;
+  margin: 0 auto;
+  color: rgb(8, 67, 86);
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.char {
+  /* sets the font size for an element to be responsive to the width of the viewport, and adjusts based on the number of columns in a grid layout. */
+  font-size: calc(10vw / 2);
+  font-weight: bold;
+  border: 1.5px solid black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 10px;
+  cursor: pointer;
+}
+
+/* .not-word {
+  background-color: rgba(255, 0, 0, 0.3);
+  font-size: 4rem;
+  text-transform: uppercase;
+} */
+
+.not-on-board,
+.not-word {
+  background-color: rgba(255, 0, 0, 0.3);
+  font-size: 4rem;
+  text-transform: uppercase;
+}
+.ok {
+  background-color: rgba(0, 255, 0, 0.3);
+  font-size: 4rem;
+  text-transform: uppercase;
+}
