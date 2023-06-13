@@ -24,9 +24,9 @@ def homepage():
 def make_board():
     """makes boggle Board"""
    
-    session.get('highscore', 0)
+    highscore = session.get('highscore', 0)
     board_data = session['board_data']
-    return render_template('make_board.html', boggle_board=board_data)
+    return render_template('make_board.html', boggle_board=board_data, highscore=highscore)
 
 @app.route("/check-word")
 def check_word():

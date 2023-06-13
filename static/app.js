@@ -31,19 +31,30 @@ class BoggleGame {
     e.preventDefault();
     const word = $("#input").val();
 
+    if (this.wordList.has(word)) {
+      this.showMessage(`${word} is ALREADY in WORDS`, "error");
+      $("#input").val("").focus();
+
+      return;
+    }
+
     try {
       //axios.get("/check-word?word=word")
       const response = await axios.get("/check-word", {
         params: { word: word },
       });
       const result = response.data.result;
+
       if (result === "WELL-DONE") {
         this.score += 1;
         this.showScore();
-        this.showWordList(word);
         this.wordList.add(word);
+        this.showWordList(word);
+        this.showMessage(`WELL Done!`, "message");
+      } else if (result === "NOT-A-WORD") {
+        this.showMessage(`${word} is NOT a VALID english WORD!`, "error");
       } else {
-        this.flashMessage(result, word);
+        this.showMessage(`${word} is NOT a VALID WORD on Board!`, "error");
       }
     } catch (err) {
       console.log(err);
@@ -56,20 +67,8 @@ class BoggleGame {
     $("#counterValue", this.board).text(this.score);
   }
 
-  flashMessage(result, word) {
-    $("#message").html(`<p class="${result}"> "${word}" is ${result} </p>`);
-
-    setTimeout(function () {
-      $("#message").empty();
-    }, 3000);
-  }
-
-  showWordList(word) {
-    if (this.wordList.has(word)) {
-      this.flashMessage("ALREADY-IN-WORDS", word);
-    } else {
-      $("#wordList", this.board).append(`<li>${word}</li>`);
-    }
+  showMessage(message, cls) {
+    $("#message", this.board).removeClass().addClass(`${cls}`).text(message);
   }
 
   async handleScore() {
@@ -77,11 +76,9 @@ class BoggleGame {
     const response = await axios.post("/post-score", { score: this.score });
     console.log("response", response);
     if (response.data.brokeRecord) {
-      alert("NEW RECORD");
-      this.newGame();
+      this.showMessage(`NEW RECORD : ${this.score}`, "message");
     } else {
-      alert(`YOUR SCORE IS: ${this.score}`);
-      this.newGame();
+      this.showMessage(`Your SCORE is : ${this.score}`, "message");
     }
   }
 
@@ -90,4 +87,4 @@ class BoggleGame {
   }
 }
 
-let newGame = new BoggleGame("boggle_1", 4);
+let newGame = new BoggleGame("boggle_1", 15);

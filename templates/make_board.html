@@ -1,45 +1,50 @@
 {%extends 'base.html'%} {%block title%}Board{%endblock%} {%block content%}
 
 <section id="boggle_1">
+
   <form id="inputForm" autocomplete="off">
-    <label for="word"></label>
-    <input type="text" name="word" id="input" placeholder="WORD" />
-    <button type="submit">Submit</button>
+    <div>
+      <p id="timer">
+        <div id="timer"></div>
+      </p>
+    </div>
+    <div>
+      <label for="word"></label>
+      <input type="text" name="word" id="input" placeholder="WORD" />
+      <button id="submitBtn" type="submit">Submit</button>
+    </div>
   </form>
 
-  <p>
-    HIGHSCORE:
-    <div id="highscore"></div>
-  </p>
   
-  <div id="score">
-    <p>
-      SCORE:
-      <div id="counterValue"></div>
+<div id="gameContainer">
+  <div id="infoBoard">
+    <p id="highscore">
+      HIGHSCORE: {{highscore}}
     </p>
+      <p id="score">
+        SCORE:
+        <div id="counterValue"></div>
+      </p> 
+      
+      <div id="message"></div>
+      <p>
+        WORDS
+        <ul id="wordList"></ul>
+      </p>
+    
+    
+    <button id="resetBtn" type="reset">NEW GAME</button>
   </div>
 
-  <div id="">
-    <h1>
-      TIME:
-      <div id="timer"></div>
-    </h1>
-  </div>
 
-  <div>
-    <h1>WORDS</h1>
-    <ul id="wordList"></ul>
-  </div>
-
-  <div id="message"></div>
-
-  <div><button id="resetBtn" type="reset">NEW GAME</button></div>
-
-  <div class="boggle-board">
+  <div id="boggleBoard">
     {% for list_row in boggle_board %} {% for char in list_row %}
     <div class="char">{{ char }}</div>
     {% endfor %} {% endfor %}
   </div>
+</div>
+
+
 </section>
 
 {%endblock%}

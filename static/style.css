@@ -3,21 +3,26 @@
   margin: 0px;
   padding: 0px;
   font-family: "Courier New", Courier, monospace;
+  font-size: 1.2rem;
 }
 
 body {
-  background-color: darkgray;
+  background-color: #373e89;
 }
 
-.boggle-board {
+#gameContainer {
+  display: flex;
+  padding-top: 50px;
+  justify-content: space-around;
+}
+
+#boggleBoard {
   display: grid;
   grid-template-columns: repeat(5, 1fr);
   grid-template-rows: repeat(5, 1fr);
   gap: 10px;
   width: 50vw;
   height: 50vw;
-  /* width: 80vh; */
-  /* height: 80vh; */
   max-width: 500px;
   max-height: 500px;
   margin: 0 auto;
@@ -26,9 +31,27 @@ body {
   overflow: hidden;
 }
 
+#infoBoard {
+  display: flex;
+  flex-direction: column;
+  text-transform: uppercase;
+  font-weight: 800;
+  font-size: 1rem;
+  width: 30%;
+  margin-left: 50px;
+  background-color: rgb(225, 236, 249);
+  border: 1px black solid;
+  border-radius: 10px;
+}
+
+#infoBoard p {
+  margin: 10px;
+}
+
 .char {
   /* sets the font size for an element to be responsive to the width of the viewport, and adjusts based on the number of columns in a grid layout. */
   font-size: calc(10vw / 2);
+  background-color: #fee36e;
   font-weight: bold;
   border: 1.5px solid black;
   display: flex;
@@ -38,13 +61,35 @@ body {
   cursor: pointer;
 }
 
-/* .not-word {
-  background-color: rgba(255, 0, 0, 0.3);
-  font-size: 4rem;
-  text-transform: uppercase;
-} */
+#inputForm {
+  padding-top: 50px;
+  margin-left: 50px;
+  margin-right: 80px;
+  display: flex;
+  justify-content: space-around;
+}
 
-.not-on-board,
+#timer {
+  justify-content: left;
+  justify-self: left;
+  font-size: 3rem;
+  font-weight: 900;
+  /* margin-right: 100px; */
+}
+
+#input,
+#submitBtn {
+  font-size: 1.5rem;
+  margin: 10px;
+  font-weight: 400;
+  border-radius: 5px;
+}
+
+#resetBtn {
+  /* justify-self: flex-end; */
+}
+
+/* .not-on-board,
 .not-word {
   background-color: rgba(255, 0, 0, 0.3);
   font-size: 4rem;
@@ -54,4 +99,4 @@ body {
   background-color: rgba(0, 255, 0, 0.3);
   font-size: 4rem;
   text-transform: uppercase;
-}
+} */
