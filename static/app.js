@@ -5,7 +5,6 @@ class BoggleGame {
     this.gameCounter = 0;
     this.secs = secs;
     this.wordList = new Set();
-
     this.timer = setInterval(this.countDown.bind(this), 1000);
 
     $("#inputForm", this.board).on("submit", this.handleSubmit.bind(this));
@@ -87,4 +86,4 @@ class BoggleGame {
   }
 }
 
-let newGame = new BoggleGame("boggle_1", 15);
+let newGame = new BoggleGame("boggle_1", 180);

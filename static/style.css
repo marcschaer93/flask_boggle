@@ -89,14 +89,10 @@ body {
   /* justify-self: flex-end; */
 }
 
-/* .not-on-board,
-.not-word {
-  background-color: rgba(255, 0, 0, 0.3);
-  font-size: 4rem;
-  text-transform: uppercase;
+.error {
+  color: red;
 }
-.ok {
-  background-color: rgba(0, 255, 0, 0.3);
-  font-size: 4rem;
-  text-transform: uppercase;
-} */
+
+.messeage {
+  color: green;
+}

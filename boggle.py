@@ -6,7 +6,7 @@ import string
 
 class Boggle():
 
-    def __init__(self):
+    def __init__(self): 
 
         self.words = self.read_dict("words.txt")
 
